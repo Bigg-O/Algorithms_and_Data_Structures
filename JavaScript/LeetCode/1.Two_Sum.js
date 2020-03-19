@@ -77,7 +77,7 @@ var twoSum = function (nums, target) {
     const numTable = {}
 
     for (let i = 0; i < nums.length; i++) {
-        let otherPair = target - nums[i];
+        const otherPair = target - nums[i];
 
         if (otherPair in numTable) {
             return [numTable[otherPair], i]
