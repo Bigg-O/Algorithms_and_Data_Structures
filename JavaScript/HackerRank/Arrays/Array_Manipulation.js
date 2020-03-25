@@ -24,24 +24,33 @@ function arrayManipulation(n, queries) {
     // and number to remove at index = queries[i][0]+1
     // this will allow us to build each element of the final array by summing all elements
     for (let i = 0; i < queries.length; i++) {
+        console.log(arr)
         arr[queries[i][0] - 1] += queries[i][2];
         if (queries[i][1] < arr.length) {
             arr[queries[i][1]] -= queries[i][2];
         }
     }
     for (let i = 1; i < n; i++) {
+        console.log(arr)
         arr[i] += arr[i - 1];
     }
 
-    return Math.max(...arr)
+    let result = 0
+    for (const num of arr) {
+        if (num > result) {
+            result = num
+        }
+    }
+
+    return result
 }
 
 // const n = 10
-// const queries = [[2, 3, 1, 5], [6, 5, 8, 9], [8, 7, 1, 15]]
+// const queries = [[2, 6, 8], [3, 5, 7], [1, 8, 1], [5, 9, 15]]
 const n = 5
-const queries = [[1, 2, 3], [2, 5, 4], [100, 100, 100]]
+const queries = [[1, 2, 100], [2, 5, 100], [3, 4, 100]]
 // const n = 10
-// const queries = [[1, 5, 6], [3, 8, 9], [3, 7, 1]]
+// const queries = [[1, 5, 3], [4, 8, 7], [6, 9, 1]]
 
 console.log("INPUT: n =", n)
 console.log("INPUT: queries =", queries)
