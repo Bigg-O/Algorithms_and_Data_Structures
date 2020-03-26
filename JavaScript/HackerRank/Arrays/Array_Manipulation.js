@@ -1,14 +1,18 @@
-// My first real solution
+// Best Solution
 function arrayManipulation(n, queries) {
     const arr = []
     for (let i = 0; i < n; i++) {
         arr[i] = 0
     }
 
-    for (let i = 0; i < queries.length; i++) {
-        for (let j = queries[i][0] - 1; j < queries[i][1]; j++) {
-            arr[j] += queries[i][2]
+    for (const q of queries) {
+        arr[q[0] - 1] += q[2]
+        if (q[1] < n) {
+            arr[q[1]] -= q[2]
         }
+    }
+    for (let i = 1; i < arr.length; i++) {
+        arr[i] += arr[i - 1]
     }
 
     let result = 0
@@ -32,16 +36,25 @@ console.log("INPUT: n =", n)
 console.log("INPUT: queries =", queries)
 console.log("OUTPUT: ", arrayManipulation(n, queries))
 
-// // My Solution for wrong input
+// // First bruteforce solution
 // function arrayManipulation(n, queries) {
-//     const board = []
-//     for (let i = 0; i < n; i++) board[i] = 0
+//     const arr = []
+//     for (let i = 0; i < n; i++) {
+//         arr[i] = 0
+//     }
 
-//     for (let i = 0; i < queries[0].length; i++) {
-//         for (let j = queries[0][i] - 1; j < queries[1][i]; j++) {
-//             board[j] += queries[2][i]
+//     for (let i = 0; i < queries.length; i++) {
+//         for (let j = queries[i][0] - 1; j < queries[i][1]; j++) {
+//             arr[j] += queries[i][2]
 //         }
 //     }
 
-//     return Math.max(...board)
+//     let result = 0
+//     for (const num of arr) {
+//         if (num > result) {
+//             result = num
+//         }
+//     }
+
+//     return result
 // }
