@@ -25,8 +25,6 @@ function sherlockAndAnagrams(s) {
     }
 
     for (const num of Object.values(charMap)) {
-        if (num > 1)
-            console.log(num)
         result += num * (num - 1) / 2;
     }
     
