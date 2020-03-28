@@ -1,6 +1,5 @@
 // // Iterative
 // var numberOfSteps  = function(num) {
-
 //    let result = 0 
     
 //     while (num) {
