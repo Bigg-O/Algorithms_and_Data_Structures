@@ -1,15 +1,16 @@
+// Indestructive Solution
 function mergeRanges(meetings) {
-  meetings = meetings.sort((a, b) => a.startTime - b.startTime)
+  const sortedMeetings = [...meetings.sort((a, b) => a.startTime - b.startTime)]
 
   let i = 0
-  while (i < meetings.length - 1) {
+  while (i < sortedMeetings.length - 1) {
     // current End >= next Start
-    if (meetings[i].endTime >= meetings[i + 1].startTime) {
+    if (sortedMeetings[i].endTime >= sortedMeetings[i + 1].startTime) {
       // current End < next End
-      if (meetings[i].endTime < meetings[i + 1].endTime) {
-        meetings[i].endTime = meetings[i + 1].endTime
+      if (sortedMeetings[i].endTime < sortedMeetings[i + 1].endTime) {
+        sortedMeetings[i].endTime = sortedMeetings[i + 1].endTime
       }
-      meetings.splice(i + 1, 1)
+      sortedMeetings.splice(i + 1, 1)
     } else {
       i++
     }
@@ -26,3 +27,36 @@ const meetings = [{ startTime: 0, endTime: 1 },
 
 console.log("meetings:", meetings)
 console.log("OUTPUT:", mergeRanges(meetings))
+
+// // InterviewCake Solution
+// function mergeRanges(meetings) {
+
+//   // Create a deep copy of the meetings array
+//   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Deep_Clone
+//   const meetingsCopy = JSON.parse(JSON.stringify(meetings));
+
+//   // Sort by start time
+//   const sortedMeetings = meetingsCopy.sort((a, b) => {
+//     return a.startTime - b.startTime;
+//   });
+
+//   // Initialize mergedMeetings with the earliest meeting
+//   const mergedMeetings = [sortedMeetings[0]];
+
+//   for (let i = 1; i < sortedMeetings.length; i++) {
+//     const currentMeeting    = sortedMeetings[i];
+//     const lastMergedMeeting = mergedMeetings[mergedMeetings.length - 1];
+
+//     // If the current meeting overlaps with the last merged meeting, use the
+//     // later end time of the two
+//     if (currentMeeting.startTime <= lastMergedMeeting.endTime) {
+//       lastMergedMeeting.endTime = Math.max(lastMergedMeeting.endTime, currentMeeting.endTime);
+//     } else {
+
+//       // Add the current meeting since it doesn't overlap
+//       mergedMeetings.push(currentMeeting);
+//     }
+//   }
+
+//   return mergedMeetings;
+// }
