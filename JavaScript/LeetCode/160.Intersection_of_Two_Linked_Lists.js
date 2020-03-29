@@ -1,9 +1,9 @@
 var getIntersectionNode = function (headA, headB) {
     if (!headA || !headB) return null
 
-    const nodeSet = new Set([])
     let a = headA
     let b = headB
+    const nodeSet = new Set([])
 
     while (a) {
         nodeSet.add(a)
