@@ -25,21 +25,68 @@
 //     return !open
 // };
 
-// Second Solution
+// function reverse(str) {
+//     if (str === ')') return '('
+//     if (str === ']') return '['
+//     if (str === '}') return '{'
+// }
+
+// // Second Solution
+// var isValid = function (str) {
+//     if (str.length % 2 === 1) {
+//         return false
+//     }
+
+//     const stack = []
+//     const opens = new Set(['(', '[', '{'])
+//     const closes = new Set([')', ']', '}'])
+
+//     for (const char of str) {
+//         if (opens.has(char)) {
+//             stack.push(char)
+//         } else if (closes.has(char)) {
+//             if (stack[stack.length - 1] === reverse(char)) {
+//                 stack.pop()
+//             } else {
+//                 return false
+//             }
+//         } else {
+//             return false
+//         }
+//     }
+
+//     return !stack.length
+// }
+
+// function reverse(str) {
+//     if (str === ')') return '('
+//     if (str === ']') return '['
+//     if (str === '}') return '{'
+// }
+
+// Third Solution
 var isValid = function (str) {
     if (str.length % 2 === 1) {
         return false
     }
 
     const stack = []
-    const opens = new Set(['(', '[', '{'])
-    const closes = new Set([')', ']', '}'])
+    const opens = {
+        '(': 1,
+        '{': 2,
+        '[': 3
+    }
+    const closes = {
+        ')': 1,
+        '}': 2,
+        ']': 3
+    }
 
     for (const char of str) {
-        if (opens.has(char)) {
+        if (opens[char]) {
             stack.push(char)
-        } else if (closes.has(char)) {
-            if (stack[stack.length - 1] === reverse(char)) {
+        } else if (stack.length && closes[char]) {
+            if (opens[stack[stack.length - 1]] === closes[char]) {
                 stack.pop()
             } else {
                 return false
@@ -50,10 +97,4 @@ var isValid = function (str) {
     }
 
     return !stack.length
-}
-
-function reverse(str) {
-    if (str === ')') return '('
-    if (str === ']') return '['
-    if (str === '}') return '{'
 }
