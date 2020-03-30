@@ -1,9 +1,10 @@
-// First Solution
+// Second Solution O(n)
 var kthSmallest = function (root, k) {
-    return BFS(root).sort((a, b) => a - b)[k - 1]
-};
 
-function BFS(root) {
+}
+
+// First Solution using BFS O(n log n)
+var kthSmallest = function (root, k) {
     const arr = [root]
     const result = []
 
@@ -14,6 +15,5 @@ function BFS(root) {
         if (head.right) arr.push(head.right)
         result.push(head.val)
     }
-
-    return result
+    return result.sort((a, b) => a - b)[k - 1]
 }
