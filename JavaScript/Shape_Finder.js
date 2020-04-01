@@ -5,15 +5,31 @@ Example: matrix below has 2 shapes,
 */
 
 
-function shapes(points) {
+function shapes(board) {
+  const shapes = []
+
   
+
+  return shapes.length
 }
 
-const points = [
+function findShape(board, piece) {
+  const result = []
+
+  for (let col = 0; col < board.length; col++) {
+    for (let row = 0; row < board[col].length; row++) {
+      if (board[col][row] === piece) {
+        result.push([col,row])
+      }
+    }
+  }
+}
+
+const board = [
   ["b", "w", "b", "b", "b"],
   ["b", "w", "b", "w", "w"],
   ["b", "w", "b", "b", "b"]
 ]
 
-console.log("points:", points)
-console.log("OUTPUT:", shapes(points))
+console.log("board:", board)
+console.log("OUTPUT:", shapes(board))
