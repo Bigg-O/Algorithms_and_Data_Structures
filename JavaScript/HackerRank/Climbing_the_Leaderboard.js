@@ -16,18 +16,19 @@ function climbingLeaderboard(scores, alice) {
     return result
 }
 
-function binarySearch(scores, score, mid = Math.floor(scores.length / 2)) {
-    console.log(mid)
-    if (scores[mid] === score) {
-        return mid + 1
-    } else if (scores[mid] > score && scores[mid + 1] < score) {
-        return mid + 2
-    }
+function binarySearch(arr, num) {
+    const mid = Math.floor(arr.length / 2)
 
-    if (scores[mid] > score) {
-        binarySearch(scores, score, Math.floor(mid / 2))
-    } else if (scores[mid] < score) {
-        binarySearch(scores, score, Math.floor(mid + scores.length / 2))
+    if (arr[mid] > num && arr[mid + 1] ) {
+        return arr[mid]
+    } else if (arr.length === 1) {
+        return "INPUT DNE"
+    }
+    
+    if (arr[mid] > num) {
+        return binarySearch(arr.slice(0, mid), num)
+    } else {
+        return binarySearch(arr.slice(mid), num)
     }
 }
 
