@@ -17,9 +17,24 @@ class BinaryTreeNode {
 }
 
 function isBalanced(treeRoot) {
+    const depths = new Set()
+    const arr = [[treeRoot, 0]]
+    while (arr.length) {
 
-    // Determine if the tree is superbalanced
+        const nodeAndDepth = arr.shift()
+        const node = nodeAndDepth.shift()
+        const depth = nodeAndDepth.shift()
 
+        if (!node.left && !node.right) {
+            depths.add(depth)
+            if (depths.size > 2 || (depths.size === 2 && Math.max(...depths) > Math.min(...depths) + 1)) {
+                return false
+            }
+        }
 
-    return false;
+        if (node.left) arr.unshift([node.left, depth + 1])
+        if (node.right) arr.unshift([node.right, depth + 1])
+    }
+
+    return true
 }
