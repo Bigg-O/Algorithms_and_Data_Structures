@@ -9,26 +9,25 @@ function climbingLeaderboard(scores, alice) {
         } else if (scores[scores.length - 1] > score) {
             result.push(scores.length + 1)
         } else {
-            result.push(binarySearch(scores, score))
+            result.push(indexBinarySearch(scores, score) + 1)
         }
     }
 
     return result
 }
+function indexBinarySearch(arr, num, start = 0, end = arr.length - 1) { 
+    const mid = Math.floor((start + end) / 2)
 
-function binarySearch(arr, num) {
-    const mid = Math.floor(arr.length / 2)
-
-    if (arr[mid] > num && arr[mid + 1] ) {
-        return arr[mid]
-    } else if (arr.length === 1) {
-        return "INPUT DNE"
+    if (arr[mid] === num)  {
+        return mid
+    } else if (arr[mid] > num && arr[mid + 1] < num) {
+        return mid + 1
     }
-    
-    if (arr[mid] > num) {
-        return binarySearch(arr.slice(0, mid), num)
+
+    if (arr[mid] < num) {
+        return indexBinarySearch(arr, num, start, mid - 1);
     } else {
-        return binarySearch(arr.slice(mid), num)
+        return indexBinarySearch(arr, num, mid + 1, end);
     }
 }
 
@@ -36,7 +35,7 @@ const score = 65
 const scores = [100, 90, 80, 75, 60]
 console.log("SCORE:", score)
 console.log("SCORES:", scores)
-console.log("OUTPUT:", binarySearch(scores, score))
+console.log("OUTPUT:", climbingLeaderboard(scores, score))
 
 // // Second Solution O(n * log(m)) ?
 // function climbingLeaderboard(scores, alice) {
