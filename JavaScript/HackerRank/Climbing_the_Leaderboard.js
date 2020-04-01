@@ -1,0 +1,4 @@
+function climbingLeaderboard(scores, alice) {
+
+
+}
