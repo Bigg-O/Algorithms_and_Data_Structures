@@ -18,7 +18,7 @@ function climbingLeaderboard(scores, alice) {
 function indexBinarySearch(arr, num, start = 0, end = arr.length - 1) { 
     const mid = Math.floor((start + end) / 2)
 
-    if (arr[mid] === num)  {
+    if (arr[mid] === num) {
         return mid
     } else if (arr[mid] > num && arr[mid + 1] < num) {
         return mid + 1
