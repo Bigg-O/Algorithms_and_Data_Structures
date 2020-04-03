@@ -4,7 +4,7 @@ function climbingLeaderboard(scores, alice) {
     const result = []
 
     for (const score of alice) {
-        if (score > scores[0]) {
+        if (score >= scores[0]) {
             result.push(1)
         } else if (scores[scores.length - 1] > score) {
             result.push(scores.length + 1)
