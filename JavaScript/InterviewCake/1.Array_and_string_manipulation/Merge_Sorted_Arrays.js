@@ -1,7 +1,6 @@
 // Second Solution Indestructive Solution
 function mergeArrays(myArray, alicesArray) {
     const result = []
-  
     let i = 0 // myArray Counter
     let j = 0 // alicesArray Counter
     
