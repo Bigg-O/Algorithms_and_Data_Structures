@@ -1,0 +1,3 @@
+function mergeArrays(myArray, alicesArray) {
+
+}
