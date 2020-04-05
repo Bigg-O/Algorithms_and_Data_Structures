@@ -1,6 +1,17 @@
+// First Solution O(n)
 function sortScores(unorderedScores, highestPossibleScore) {
-
-    // Sort the scores in O(n) time
+    const result = []
+    const scoreMap = {}
+    
+    for (const score of unorderedScores) {
+      scoreMap[score] = (scoreMap[score] || 0) + 1
+    }
   
-    return unorderedScores;
-  }
+    for (let score = highestPossibleScore; score >= 0; score--) {
+      for (let i = 0; i < scoreMap[score]; i++) {
+        result.push(score)
+      }
+    }
+  
+    return result
+}
