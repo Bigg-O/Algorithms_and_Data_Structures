@@ -9,6 +9,6 @@ class WordCloudData {
       // Count the frequency of each word
       
   
-    }
+    } 
   
 }
