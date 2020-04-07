@@ -1,4 +1,4 @@
-// Third Solution using binary seach O(n * log(m))  n = alice.length, m = scores.length
+// Third Solution using binary seach O(n * log(m))
 function climbingLeaderboard(scores, alice) {
     scores = [...new Set(scores)]
     const result = []
@@ -37,7 +37,7 @@ console.log("SCORE:", score)
 console.log("SCORES:", scores)
 console.log("OUTPUT:", climbingLeaderboard(scores, score))
 
-// // Second Solution O(n * log(m)) ?
+// // Second Solution O(n * m) but still little better
 // function climbingLeaderboard(scores, alice) {
 //     scores = [...new Set(scores)]
 //     const result = []
