@@ -7,14 +7,14 @@ function getMaxProfit(stockPrices) {
     }
     
     let min = stockPrices[0]
-    let result = stockPrices[1] - stockPrices[0]
+    let result = stockPrices[1] - min
     
     for (let i = 1; i < stockPrices.length; i++) {
       if (stockPrices[i] - min > result) {
         result = stockPrices[i] - min
       }
       if (stockPrices[i] < min) {
-          min = stockPrices[i]
+        min = stockPrices[i]
       }
     }
   
