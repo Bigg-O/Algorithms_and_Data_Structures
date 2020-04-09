@@ -1,6 +1,6 @@
 // InterviewCake Solution 
-// Runtime O(n)
-// Space O(1)
+// Runtime: O(n)
+// Space: O(1)
 function getMaxProfit(stockPrices) {
     if (stockPrices.length < 2) {
       throw 'Getting a profit requires at least 2 prices'
@@ -23,10 +23,10 @@ function getMaxProfit(stockPrices) {
   
 
 // // First Brute Force Solution
-// // Runtime
-// // O(n) at Best
-// // O(n^2) at Worst
-// // Space O(1)
+// // Runtime:
+// //   O(n) at Best
+// //   O(n^2) at Worst
+// // Space: O(1)
 // function getMaxProfit(stockPrices) {
 //     if (stockPrices.length < 2) {
 //         throw 'Getting a profit requires at least 2 prices'

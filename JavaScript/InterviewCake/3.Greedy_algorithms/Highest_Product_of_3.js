@@ -30,8 +30,8 @@ function highestProductOf3(arrayOfInts) {
 }
 
 // // Second Try Doesn't quite work
-// // Runtime O(n)
-// // Space O(1)
+// // Runtime: O(n)
+// // Space: O(1)
 // function highestProductOf3(arrayOfInts) {
 //     if (arrayOfInts.length < 3) {
 //         throw 'Less than 3 items!'
@@ -59,7 +59,8 @@ function highestProductOf3(arrayOfInts) {
 //     return maxNums.reduce((a,b) => a*b)
 // }
 
-// // First Try O(n)
+// // First Try
+// // Runtime: O(n)
 // // Doesn't work with negative numbers
 // function highestProductOf3(arrayOfInts) {
 //     if (arrayOfInts.length < 3) {
