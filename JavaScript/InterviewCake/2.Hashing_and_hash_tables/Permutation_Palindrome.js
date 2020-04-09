@@ -1,4 +1,5 @@
-// Set Solution O(n)
+// Set Solution
+// Runtime: O(n)
 function hasPalindromePermutation(theString) {
     const charSet = new Set()
 
@@ -9,7 +10,8 @@ function hasPalindromePermutation(theString) {
     return charSet.size < 2
 }
 
-// First Solution O(n)
+// First Solution
+// Runtime: O(n)
 function hasPalindromePermutation(theString) {
     const charMap = {}
 

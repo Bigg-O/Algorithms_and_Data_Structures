@@ -1,4 +1,5 @@
-// First Solution O(n)
+// First Solution
+// Runtime: O(n)
 function sortScores(unorderedScores, highestPossibleScore) {
     const result = []
     const scoreMap = {}

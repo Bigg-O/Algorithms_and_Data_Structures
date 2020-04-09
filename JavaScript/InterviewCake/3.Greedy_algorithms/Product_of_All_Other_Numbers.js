@@ -3,10 +3,11 @@
 // Space: O(n)
 function getProductsOfAllIntsExceptAtIndex(intArray) {
     if (intArray.length < 2) {
-        throw 'error'
+        throw 'Getting the product of numbers at other indices requires at least 2 numbers'
     }
   
     const result = [1]
+    
     for (let i = 0; i < intArray.length - 1; i++) {
         result.push(result[i] * intArray[i])
     }
@@ -25,7 +26,7 @@ function getProductsOfAllIntsExceptAtIndex(intArray) {
 // // Spcar: O(3n) => O(n)
 // function getProductsOfAllIntsExceptAtIndex(intArray) {
 //     if (intArray.length < 2) {
-//         throw 'error'
+//         throw 'Getting the product of numbers at other indices requires at least 2 numbers'
 //       }
       
 //       const befores = [1]
@@ -52,7 +53,7 @@ function getProductsOfAllIntsExceptAtIndex(intArray) {
 // // Space: O(n)
 // function getProductsOfAllIntsExceptAtIndex(intArray) {
 //     if (intArray.length < 2) {
-//         throw 'error'
+//         throw 'Getting the product of numbers at other indices requires at least 2 numbers'
 //     }
 
 //     const result = []
