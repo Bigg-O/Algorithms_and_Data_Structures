@@ -4,6 +4,12 @@ function getRandom(floor, ceiling) {
   
 function shuffle(array) {
 
-    // Shuffle the input in place
+    for (let i = 0; i < array.length; i++) {
+        const randomIndex = getRandom(0, array.length - 1)
+        
+        const temp = array[randomIndex]
+        array[randomIndex] = array[i]
+        array[i] = temp
+    }
 
 }
