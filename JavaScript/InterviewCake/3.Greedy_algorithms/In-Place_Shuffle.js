@@ -1,7 +1,8 @@
 function getRandom(floor, ceiling) {
     return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
 }
-  
+
+// First Solution, Not correct
 function shuffle(array) {
 
     for (let i = 0; i < array.length; i++) {
