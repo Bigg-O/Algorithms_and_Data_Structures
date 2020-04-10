@@ -1,15 +1,22 @@
-// Third Recursive Solution
+// Forth Iterative Solution
+// Runtime: 
+// Space: 
+function findRotationPoint(words) {
+
+}
+
+// Third Recursive Solution Not done yet
 // Runtime: O(log(n))
 // Space: O(1)
 function findRotationPoint(words, start = 0, end = words.length - 1) {
     const mid = Math.floor((start + end) / 2)
   
-    if (mid === words.length) {
+    if (words[mid-1] > words[mid]) {
+      return mid
+    } else if (mid === words.length - 1) {
       return 0    
     } else if (mid === 0)  {
       return words.length - 1
-    } else if (words[mid-1] > words[mid]) {
-      return mid
     }
     
     if (words[0] > words[mid]) {
