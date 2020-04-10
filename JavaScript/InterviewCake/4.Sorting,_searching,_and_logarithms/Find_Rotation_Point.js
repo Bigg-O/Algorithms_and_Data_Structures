@@ -1,29 +1,33 @@
-// Forth Iterative Solution
-// Runtime: 
-// Space: 
+// Third Recursive Solution
+// Runtime: O(log(n))
+// Space: O(1)????
 function findRotationPoint(words) {
+  if (!words || words.length < 2) {
+    throw 'Invalid Entry'
+  }
+  if (words[0] < words[words.length - 1]) {
+    return 0
+  }
 
+  return rotationBinarySearch(words)
 }
 
-// Third Recursive Solution Not done yet
-// Runtime: O(log(n))
-// Space: O(1)
-function findRotationPoint(words, start = 0, end = words.length - 1) {
-    const mid = Math.floor((start + end) / 2)
+function rotationBinarySearch(words, start = 0, end = words.length - 1) {
+  const mid = Math.floor((start + end) / 2)
   
-    if (words[mid-1] > words[mid]) {
-      return mid
-    } else if (mid === words.length - 1) {
-      return 0    
-    } else if (mid === 0)  {
-      return words.length - 1
-    }
-    
-    if (words[0] > words[mid]) {
-      return findRotationPoint(words, start, mid-1)
-    } else {
-      return findRotationPoint(words, mid+1, end)
-    }
+  if (words[mid-1] > words[mid]) {
+    return mid
+  } else if (mid === words.length - 1) {
+    return 0    
+  } else if (mid === 0)  {
+    return words.length - 1
+  }
+  
+  if (words[0] > words[mid]) {
+    return rotationBinarySearch(words, start, mid)
+  } else {
+    return rotationBinarySearch(words, mid, end)
+  }
 }
 
 // Second Solution
