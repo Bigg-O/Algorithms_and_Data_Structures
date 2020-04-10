@@ -1,6 +1,16 @@
 // Second Solution Optimizing for space
+// Runtime: O(n*log(n))
+// Space: O(1)
 function findRepeat(numbers) {
+    numbers = numbers.sort((a,b) => a-b)
 
+    for (let i = 0; i < numbers.length - 1; i++) {
+      if (numbers[i] === numbers[i+1]) {
+        return numbers[i]
+      }
+    }
+    
+    return false
 }
 
 // First Solution Optimizing for runtime
