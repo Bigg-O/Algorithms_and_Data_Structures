@@ -5,7 +5,7 @@ function findRepeat(numbers) {
 
 }
 
-// Second Solution with sorting
+// Second Solution with sorting (Destructive)
 // Runtime: O(n*log(n))
 // Space: O(n*log(n))
 function findRepeat(numbers) {
@@ -20,7 +20,7 @@ function findRepeat(numbers) {
   return false
 }
 
-// First Solution Optimizing for runtime
+// First Solution Optimizing for runtime (Immutable)
 // Runtime: O(n)
 // Space: O(n)
 function findRepeat(numbers) {
