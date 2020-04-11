@@ -5,6 +5,22 @@ class LinkedListNode {
     }
 }
 
+// Second Solution
+// Runtime: O(n)
+// Space: O(1)
+function containsCycle(firstNode) {
+    let slow = firstNode
+    let fast = firstNode
+    
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+        if (slow === fast) return true
+    }
+  
+    return false
+}
+
 // First Solution
 // Runtime: O(n)
 // Space: O(1)
