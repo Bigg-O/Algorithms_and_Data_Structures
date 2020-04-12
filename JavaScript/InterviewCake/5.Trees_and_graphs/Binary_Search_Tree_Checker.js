@@ -13,15 +13,55 @@ class BinaryTreeNode {
     insertRight(value) {
       this.right = new BinaryTreeNode(value);
       return this.right;
-    }D
+    }
 }
   
-// Second Try
+// InterviewCake Solution
+function isBinarySearchTree(treeRoot) {
+
+  // Start at the root, with an arbitrarily low lower bound
+  // and an arbitrarily high upper bound
+  const nodeAndBoundsStack = [];
+  nodeAndBoundsStack.push({
+    node: treeRoot,
+    lowerBound: Number.NEGATIVE_INFINITY,
+    upperBound: Number.POSITIVE_INFINITY,
+  });
+
+  // Depth-first traversal
+  while (nodeAndBoundsStack.length) {
+    const { node, lowerBound, upperBound } = nodeAndBoundsStack.pop();
+
+    // base case
+    if (node.value <= lowerBound || node.value >= upperBound) {
+      return false;
+    }
+
+    if (node.left) {
+      nodeAndBoundsStack.push({
+        node: node.left,
+        lowerBound,
+        upperBound: node.value,
+      });
+    }
+    if (node.right) {
+      nodeAndBoundsStack.push({
+        node: node.right,
+        lowerBound: node.value,
+        upperBound,
+      });
+    }
+  }
+
+  return true;
+}
+
+// Second Try with help of AlgoCasts solution
 function isBinarySearchTree(treeRoot, min = null, max = null) {
   // base cases
-  if (min && treeRoot.value < min) {
+  if (min && treeRoot.value <= min) {
     return false
-  } else if (max && treeRoot.value > max) {
+  } else if (max && treeRoot.value >= max) {
     return false
   }
   
@@ -35,7 +75,7 @@ function isBinarySearchTree(treeRoot, min = null, max = null) {
   return true
 }
 
-// First Try
+// First Try (DNW)
 function isBinarySearchTree(treeRoot) {
   const arr = [treeRoot]
   
