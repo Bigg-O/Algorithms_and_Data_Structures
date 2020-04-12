@@ -16,6 +16,25 @@ class BinaryTreeNode {
     }D
 }
   
+// Second Try
+function isBinarySearchTree(treeRoot, min = null, max = null) {
+  // base cases
+  if (min && treeRoot.value < min) {
+    return false
+  } else if (max && treeRoot.value > max) {
+    return false
+  }
+  
+  if (treeRoot.left && !isBinarySearchTree(treeRoot.left, min, treeRoot.value)) {
+    return false
+  }
+  if (treeRoot.right && !isBinarySearchTree(treeRoot.right, treeRoot.value, max)) {
+    return false
+  }
+  
+  return true
+}
+
 // First Try
 function isBinarySearchTree(treeRoot) {
   const arr = [treeRoot]
