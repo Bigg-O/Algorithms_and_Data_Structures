@@ -16,11 +16,28 @@ class BinaryTreeNode {
     }D
 }
   
+// First Try
 function isBinarySearchTree(treeRoot) {
-
-    // Determine if the tree is a valid binary search tree
-
-
-    return false;
+  const arr = [treeRoot]
+  
+  while (arr.length) {
+    const node = arr.shift()
+    
+    if (node.left) {
+      if (node.left.value > node.valse) {
+        return false
+      }
+      arr.push(node.left)
+    }
+    if (node.right) {
+      if (node.right.value < node.value) {
+        return false
+      }
+      arr.push(node.right)
+    }
+    
+  }
+  
+  return true
 }
   
