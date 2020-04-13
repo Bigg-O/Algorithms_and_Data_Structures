@@ -16,11 +16,20 @@ class BinaryTreeNode {
     }
 }
   
+// First Try with help of Medium.
+// In Order Traverse to get sorted array.
 function findSecondLargest(treeRoot) {
-
-    // Find the second largest item in the binary search tree
-
-
-    return null;
+	const nodes = []
+	inOrderTraverse(treeRoot, nodes)
+	
+	if (nodes.length > 1) return nodes[nodes.length - 2]
+    else throw 'error'
 }
-  
+
+function inOrderTraverse(node, nodes) {
+  if (node) {
+		inOrderTraverse(node.left, nodes);
+		nodes.push(node.value)
+		inOrderTraverse(node.right, nodes);
+	}
+}
