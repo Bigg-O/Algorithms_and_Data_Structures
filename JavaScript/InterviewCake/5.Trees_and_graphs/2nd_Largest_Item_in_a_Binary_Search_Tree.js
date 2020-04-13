@@ -20,14 +20,14 @@ class BinaryTreeNode {
 // Runtime: O(h)
 // Space: O(1)
 function findSecondLargest(treeRoot) {
-    
+
 }
   
 // Second Solution
 // Post Order Traverse until length = 2
 // Runtime: O(h), h = height of the tree
 // If BST is balanced h = log(n), else h = n
-// Space: O(h) recursive call stack
+// Space: O(h), recursive call stack memory
 function findSecondLargest(treeRoot) {
 	const nodes = []
 	postOrderTraverse(treeRoot, nodes)
