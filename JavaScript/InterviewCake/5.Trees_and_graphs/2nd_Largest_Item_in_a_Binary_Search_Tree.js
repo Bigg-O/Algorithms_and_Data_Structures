@@ -24,43 +24,43 @@ function findSecondLargest(treeRoot) {
 }
   
 // Second Solution
-// Post Order Traverse until length = 2
+// Inorder Opposite Traverse until length = 2
 // Runtime: O(h), h = height of the tree
 // If BST is balanced h = log(n), else h = n
 // Space: O(h), recursive call stack memory
 function findSecondLargest(treeRoot) {
 	const nodes = []
-	postOrderTraverse(treeRoot, nodes)
+	oppositeInorderTraverse(treeRoot, nodes)
 	
 	if (nodes.length > 1) return nodes[1]
     else throw 'error'
 }
 
-function postOrderTraverse(node, nodes) {
+function oppositeInorderTraverse(node, nodes) {
     if (nodes.length === 2) return;
     if (node) {
-        postOrderTraverse(node.right, nodes);
+        oppositeInorderTraverse(node.right, nodes);
         nodes.push(node.value)
-        postOrderTraverse(node.left, nodes);
+        oppositeInorderTraverse(node.left, nodes);
     }
 }
 
 // First Solution with help of Medium.
-// In Order Traverse to get sorted array.
+// Inorder Traverse to get sorted array.
 // Runtime: O(n)
 // Space: O(n)
 function findSecondLargest(treeRoot) {
 	const nodes = []
-	inOrderTraverse(treeRoot, nodes)
+	inorderTraverse(treeRoot, nodes)
 	
 	if (nodes.length > 1) return nodes[nodes.length - 2]
     else throw 'error'
 }
 
-function inOrderTraverse(node, nodes) {
+function inorderTraverse(node, nodes) {
   if (node) {
-		inOrderTraverse(node.left, nodes);
+		inorderTraverse(node.left, nodes);
 		nodes.push(node.value)
-		inOrderTraverse(node.right, nodes);
+		inorderTraverse(node.right, nodes);
 	}
 }
