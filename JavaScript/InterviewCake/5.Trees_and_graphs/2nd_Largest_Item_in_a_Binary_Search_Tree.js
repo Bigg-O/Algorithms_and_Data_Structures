@@ -15,6 +15,13 @@ class BinaryTreeNode {
       return this.right;
     }
 }
+
+// Third Solution
+// Runtime: O(h)
+// Space: O(1)
+function findSecondLargest(treeRoot) {
+    
+}
   
 // Second Solution
 // Post Order Traverse until length = 2
