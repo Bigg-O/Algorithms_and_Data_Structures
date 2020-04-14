@@ -33,16 +33,16 @@ function findSecondLargest(treeRoot) {
 	oppositeInorderTraverse(treeRoot, nodes)
 	
 	if (nodes.length > 1) return nodes[1]
-    else throw 'error'
+  else throw 'error'
 }
 
 function oppositeInorderTraverse(node, nodes) {
-    if (nodes.length === 2) return;
-    if (node) {
-        oppositeInorderTraverse(node.right, nodes);
-        nodes.push(node.value)
-        oppositeInorderTraverse(node.left, nodes);
-    }
+  if (nodes.length === 2) return;
+  if (node) {
+    oppositeInorderTraverse(node.right, nodes);
+    nodes.push(node.value)
+    oppositeInorderTraverse(node.left, nodes);
+  }
 }
 
 // First Solution with help of Medium.
