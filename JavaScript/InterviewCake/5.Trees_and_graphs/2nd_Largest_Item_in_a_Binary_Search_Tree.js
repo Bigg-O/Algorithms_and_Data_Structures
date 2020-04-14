@@ -16,13 +16,42 @@ class BinaryTreeNode {
     }
 }
 
-// Third Solution
+// InterviewCake Solution
 // Runtime: O(h)
 // Space: O(1)
 function findSecondLargest(treeRoot) {
+  if (!treeRoot || (!treeRoot.left && !treeRoot.right)) {
+    throw 'Tree must have at least 2 nodes'
+  }
 
+  let node = treeRoot;
+
+  while (node) {
+    
+    // Case: current is largest and has a left subtree
+    // 2nd largest is the largest in that subtree
+    if (node.left && !node.right) {
+      return findLargest(node.left);
+    }
+
+    // Case: current is parent of largest, and largest has no children,
+    // so current is 2nd largest
+    if (node.right && !node.right.left && !node.right.right) {
+      return node.value;
+    }
+
+    node = node.right;
+  }
 }
-  
+
+function findLargest(treeRoot) {
+  let node = treeRoot;
+  while (node) {
+    if (!node.right) return node.value;
+    node = node.right;
+  }
+}
+
 // Second Solution
 // Inorder Opposite Traverse until length = 2
 // Runtime: O(h), h = height of the tree
@@ -33,7 +62,7 @@ function findSecondLargest(treeRoot) {
 	oppositeInorderTraverse(treeRoot, nodes)
 	
 	if (nodes.length > 1) return nodes[1]
-  else throw 'error'
+  else throw 'Tree must have at least 2 nodes'
 }
 
 function oppositeInorderTraverse(node, nodes) {
@@ -54,7 +83,7 @@ function findSecondLargest(treeRoot) {
 	inorderTraverse(treeRoot, nodes)
 	
 	if (nodes.length > 1) return nodes[nodes.length - 2]
-    else throw 'error'
+  else throw 'Tree must have at least 2 nodes'
 }
 
 function inorderTraverse(node, nodes) {
