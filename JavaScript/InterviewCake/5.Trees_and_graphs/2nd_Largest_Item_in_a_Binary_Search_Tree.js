@@ -17,7 +17,8 @@ class BinaryTreeNode {
 }
 
 // InterviewCake Solution
-// Runtime: O(h)
+// Runtime: O(h), h = height of the tree
+// If BST is balanced h = log(n), else h = n
 // Space: O(1)
 function findSecondLargest(treeRoot) {
   if (!treeRoot || (!treeRoot.left && !treeRoot.right)) {
