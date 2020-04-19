@@ -9,7 +9,5 @@ function countTriplets(arr, r) {
         numMap[num] = (numMap[num] || 0) + 1
     }
 
-    console.log(numMap)
-
     return r
 }
