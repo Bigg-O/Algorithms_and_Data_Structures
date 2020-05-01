@@ -18,7 +18,7 @@ function countTriplets(arr, r) {
         numMap[num*r].s2++
     }
 
-    return result;
+    return result
 }
 
 // First Try In Progress
