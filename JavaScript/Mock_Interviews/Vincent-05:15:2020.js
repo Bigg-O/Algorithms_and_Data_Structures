@@ -2,6 +2,7 @@
 // Interviewee : Wookeun Song
 // Time : 10AM
 
+// Iterative Solution
 var countAndSay = function(n) {
     let result = [1]
     
