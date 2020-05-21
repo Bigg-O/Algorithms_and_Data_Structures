@@ -1,6 +1,6 @@
 // Second Attempt
 // Recursive Solution
-var countAndSay = function(n) {
+function countAndSay(n) {
 
 }
 
