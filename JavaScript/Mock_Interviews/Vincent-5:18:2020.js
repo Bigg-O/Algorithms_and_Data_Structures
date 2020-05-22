@@ -3,13 +3,36 @@
 // Time : 5:20PM
 
 // Second Solution
-function firstIndexOfSubstring(haystack, needle) {
-
+// Runtime: O(n-m) ?
+// Space: O(n)
+var strStr = function(haystack, needle) {
+    if (haystack.length < needle.length) {
+        return -1
+    } else if (!needle.length) {
+        return 0
+    }
+    
+    const charIndexes = []
+    
+    for (let i = 0; i <= haystack.length - needle.length; i++) {
+      if (haystack[i] === needle[0]) {
+          charIndexes.push(i)
+      }  
+    }
+    
+    for (const i of charIndexes) {
+        const target = haystack.substring(i,i+needle.length)
+        if (target === needle) {
+            return i
+        }
+    }
+    
+    return -1
 }
 
 // First Solution
 // Brute force
-// Runtime: O(n^2)
+// Runtime: O(n^m)
 // Space: O(1)
 function firstIndexOfSubstring(haystack, needle) {
     if (haystack.length < needle.length) {
