@@ -3,7 +3,7 @@
 // Time : 5:20PM
 
 // Second Solution
-// Runtime: O(n-m) ?
+// Runtime: O(n) ?
 // Space: O(n)
 var strStr = function(haystack, needle) {
     if (haystack.length < needle.length) {
@@ -12,19 +12,12 @@ var strStr = function(haystack, needle) {
         return 0
     }
     
-    const charIndexes = []
-    
     for (let i = 0; i <= haystack.length - needle.length; i++) {
       if (haystack[i] === needle[0]) {
-          charIndexes.push(i)
-      }  
-    }
-    
-    for (const i of charIndexes) {
-        const target = haystack.substring(i,i+needle.length)
-        if (target === needle) {
+        if (needle === haystack.substring(i,i+needle.length)) {
             return i
         }
+      }  
     }
     
     return -1
