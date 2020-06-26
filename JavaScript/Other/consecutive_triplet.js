@@ -2,6 +2,8 @@
 // This function returns true if the inut array has a consecutive triplet
 // ex) [1,2,3] => true
 
+// Fisrt Solution
+// Runtime: O(n)
 function findConsecutiveTriplet(arr) {
     if (arr.length < 3) return false
 
