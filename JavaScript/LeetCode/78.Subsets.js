@@ -7,6 +7,8 @@ function subsets(nums) {
 
     for (let count = 1; count <= nums.length; count++) {
         for (let start = 0; start < nums.length - count; start++) {
+
+            
             for (let i = count + start; i < nums.length; i++) {
                 result.push([...nums.slice(start, start + count), nums[i]])
             }
