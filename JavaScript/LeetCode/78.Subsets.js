@@ -1,5 +1,10 @@
-// First Attempt
-// Brute Force (Doesn't work)
+// Second Attempt
+function subsets(nums) {
+
+}
+
+// First Attempt (Failed)
+// Brute Force
 function subsets(nums) {
     const result = [[]]
     nums.forEach(num => {result.push([num])})
