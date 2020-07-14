@@ -1,5 +1,5 @@
 // First Attempt
-// Brute Force
+// Brute Force (Doesn't work)
 function subsets(nums) {
     const result = [[]]
     nums.forEach(num => {result.push([num])})
