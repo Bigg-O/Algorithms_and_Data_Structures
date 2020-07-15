@@ -1,5 +1,9 @@
 // Second Attempt
 // Cascading Method
+// Runtime Complecity:
+// O(n*(n^2))
+// Space Complexity:
+// O(n*(n^2))
 function subsets(nums) {
     if (nums.length === 0) {
         return []
