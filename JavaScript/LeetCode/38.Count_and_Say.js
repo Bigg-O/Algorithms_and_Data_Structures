@@ -5,23 +5,17 @@ function countAndSay(n, result = "1") {
         return result;
     }
 
-    let newResult = ""
     let count = 0
-    let num = null
-    result.foreach((num, i) => {
-        if (i + 1 < result.length) {
-            if (result[i] === result[i+1]) {
-                count++
-                num = result[i]
-            } else {
-                count = 0
-                newResult.concat(count, num)
-            }
+    let newResult = ""
+    for (let i = 0; i < result.length; i++) {
+        count++
+        if (result[i] !== result[i+1]) {
+            newResult = newResult.concat(count, result[i])
+            count = 0
         }
-        console.log("s",newResult)
-    })
+    }
     
-    countAndSay(n - 1, newResult)
+    return countAndSay(n - 1, newResult)
 }
 
 // // First Attempt
