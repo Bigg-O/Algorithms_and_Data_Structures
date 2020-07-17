@@ -1,5 +1,7 @@
 // Second Attempt
 // Recursive Solution
+// Rundtime Complexity:
+//  O(n^m) n = n, m = length of string
 function countAndSay(n, result = "1") {
     if (n === 1) {
         return result;
