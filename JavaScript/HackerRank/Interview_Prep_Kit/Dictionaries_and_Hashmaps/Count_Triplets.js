@@ -1,4 +1,25 @@
+// Solution
+// Doesn't understand
+function countTriplets(arr, r) {
+    let numMap = {};
+    let result = 0;
+    for (const num of arr) {
+        if (!numMap[num]) numMap[num] = { s1: 0, s2: 0, s3: 0 }
+        if (!numMap[num * r]) numMap[num * r] = { s1: 0, s2: 0, s3: 0 }
+
+        result += numMap[num].s3;
+
+        if (r === 1) numMap[num].s1 = 1
+        else numMap[num].s1++
+
+        numMap[num * r].s3 += numMap[num].s2;
+        numMap[num * r].s2++
+    }
+    return result;
+}
+
 // Second Try
+// Doesn't work when r === 1
 function countTriplets(arr, r) {
     let result = 0
     const numMap = {}
@@ -8,11 +29,10 @@ function countTriplets(arr, r) {
     }
 
     for (const num of arr) {
-        if (numMap[num * r] && numMap[num * r * r]) {
-            result++
-            if (2 < numMap[num * r] + numMap[num * r * r]) {
-                result += numMap[num * r] + numMap[num * r * r] - 2
-            }
+        const second = numMap[num * r]
+        const third = numMap[num * r * r]
+        if (second && third) {
+            result += second + third - 1
         }
     }
 
@@ -35,7 +55,7 @@ function countTriplets(arr, r) {
 //     return result
 // }
 
-const arr = [1,3,9,9,27,81]
+const arr = [1, 3, 9, 9, 27, 81]
 const r = 3
 console.log("arr:", arr)
 console.log("r:", r)
