@@ -1,4 +1,27 @@
+// Second Iterative Solution
+// Runtime Complexity:
+//    O(n)
+// Space Complexity:
+//    O(1)
+var reverseList = function(head) {
+    let prev = null
+    let next = null
+    let curr = head
+    while (curr) {
+        next = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next
+    }
+
+    return prev
+}
+
 // Fisrt Iterative Solution
+// Runtime Complexity:
+//    O(n)
+// Space Complexity:
+//    O(n)
 var reverseList = function(head) {
     let node = head
     const tempArr = []
