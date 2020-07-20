@@ -1,10 +1,21 @@
+// Very helpful video
+// https://www.youtube.com/watch?v=O0By4Zq0OFc
+
 // First Recursive Solution
 // Runtime Complexity:
 //    O(n)
 // Space Complexity:
 //    O(n)
 var reverseList = function(head) {
+    if (!head || !head.next) {
+        return head
+    }
 
+    const reversedList = reverseList(head.next)
+    head.next.next = head
+    head.next = null
+
+    return reversedList
 }
 
 // Second Iterative Solution
