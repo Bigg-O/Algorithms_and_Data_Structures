@@ -1,3 +1,12 @@
+// First Recursive Solution
+// Runtime Complexity:
+//    O(n)
+// Space Complexity:
+//    O(n)
+var reverseList = function(head) {
+
+}
+
 // Second Iterative Solution
 // Runtime Complexity:
 //    O(n)
