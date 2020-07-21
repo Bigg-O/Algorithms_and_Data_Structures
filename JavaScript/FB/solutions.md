@@ -1,0 +1,1 @@
+All solutions are available in this public repository: https://github.com/lolapriego/coursework
