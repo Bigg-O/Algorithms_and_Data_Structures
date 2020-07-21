@@ -1,3 +1,6 @@
+// Left Rotation
+// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem
+
 // Runtime Complexity:
 //    O(n), n = arr.length
 // Space Complexity:
