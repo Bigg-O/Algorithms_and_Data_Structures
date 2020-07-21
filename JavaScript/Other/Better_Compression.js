@@ -5,7 +5,7 @@
 
 // Runtime Complexity:
 //    O(n)
-// Space:
+// Space Complexity:
 //    O(n)
 function betterCompression(str) {
   let result = ""
@@ -25,9 +25,9 @@ function betterCompression(str) {
     charMap[char] += parseInt(numToAdd)
   }
 
+  // building result string with sorted keys
   Object.keys(charMap).sort().forEach(key => {
-    result += key
-    result += charMap[key]
+    result += key + charMap[key]
   })
 
   return result
