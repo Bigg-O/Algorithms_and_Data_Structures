@@ -3,62 +3,90 @@
 // example 1: "a3c9b2c1" =>  "a3b2c10"
 // example 2: "a12b56c1" => "a12b56c1"
 
+// Runtime Complexity:
+//    O(n)
+// Space:
+//    O(n)
 function betterCompression(str) {
-  return str
+  let result = ""
+  const charMap = {}
+  
+  // building a hashMap
+  for (let i = 0; i < str.length;) {
+    const char = str[i]
+    if (!charMap[char]) charMap[char] = 0
+    i++
+
+    let numToAdd = ""
+    while (Number.isInteger(parseInt(str[i]))) {
+      numToAdd += str[i]
+      i++
+    }
+    charMap[char] += parseInt(numToAdd)
+  }
+
+  Object.keys(charMap).sort().forEach(key => {
+    result += key
+    result += charMap[key]
+  })
+
+  return result
 }
 
-const input = "a3c9b2c1"
+const input = "a12b56c1"
 console.log("INPUT:", input)
 console.log("OUTPUT:", betterCompression(input))
 
+//////////////////////////////////
 // Saul's answer below ↓↓↓↓↓↓↓↓↓↓
+//////////////////////////////////
 
-function betterCompression(s) {
-  const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
-  let chars = [];
-  let nums = [];
-  let result = "";
+// function betterCompression(s) {
+//   const sSplit = s.match(/[a-z]+|[^a-z]+/gi);
+//   let chars = [];
+//   let nums = [];
+//   let result = "";
 
-  for (let i = 0; i < sSplit.length; i++) {
-    if (i % 2 != 0) {
-      nums.push(sSplit[i]);
-    } else {
-      chars.push(sSplit[i]);
-    }
-  }
+//   for (let i = 0; i < sSplit.length; i++) {
+//     if (i % 2 != 0) {
+//       nums.push(sSplit[i]);
+//     } else {
+//       chars.push(sSplit[i]);
+//     }
+//   }
 
-  const sObj = objBuilder(nums, chars);
-  const sObjSorted = sortObj(sObj);
+//   const sObj = objBuilder(nums, chars);
+//   const sObjSorted = sortObj(sObj);
 
-  for (let char in sObjSorted) {
-    result += char + sObjSorted[char];
-  }
+//   for (let char in sObjSorted) {
+//     result += char + sObjSorted[char];
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-function objBuilder(nums, chars) {
-  let obj = {};
-  let i = 0;
+// function objBuilder(nums, chars) {
+//   let obj = {};
+//   let i = 0;
 
-  for (let char of chars) {
-    if (!obj[char]) {
-      obj[char] = nums[i];
-    } else {
-      obj[char] = parseInt(obj[char]) + parseInt(nums[i]);
-    }
-    i++;
-  }
-  return obj;
-}
+//   for (let char of chars) {
+//     if (!obj[char]) {
+//       obj[char] = nums[i];
+//     } else {
+//       obj[char] = parseInt(obj[char]) + parseInt(nums[i]);
+//     }
+//     i++;
+//   }
+//   return obj;
+// }
 
-function sortObj(obj) {
-  const sorted = {};
+// function sortObj(obj) {
+//   const sorted = {};
 
-  Object.keys(obj)
-    .sort()
-    .forEach(function (key) {
-      sorted[key] = obj[key];
-    });
-  return sorted;
-}
+//   Object.keys(obj)
+//     .sort()
+//     .forEach(function (key) {
+//       sorted[key] = obj[key];
+//     });
+//   return sorted;
+// }
