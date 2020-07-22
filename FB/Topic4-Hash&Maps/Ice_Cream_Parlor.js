@@ -2,31 +2,26 @@
 // https://www.hackerrank.com/challenges/icecream-parlor/problem
 
 // Runtime Complexity:
-//    O(
+//    O(n)
 // Space Complexity:
-//    O(
+//    O(n)
 function icecreamParlor(m, arr) {
-    const flavorMap = {}
-    
+    const priceMap = new Map()
+  
     for (let i = 0; i < arr.length; i++) {
-        if (flavorMap[arr[i]]) flavorMap[arr[i]].push(i+1)
-        else flavorMap[arr[i]] = [i+1]
+      const target = m - arr[i]
+  
+      if (priceMap.has(target)) {
+        return [priceMap.get(target), i+1]
+      } else {
+        priceMap.set(arr[i], i+1)
+      }
     }
     
-    for (const cost of Object.keys(flavorMap)) {
-        const targetCost = m - cost
-    
-        if (cost == targetCost && flavorMap[cost]) {
-            return [...flavorMap[cost]]
-        } 
-        
-        if (flavorMap[targetCost]) {
-            return [...flavorMap[cost], ...flavorMap[targetCost]].sort()
-        }
-    }
+    return []
 }
 
-const m = 8
+const m = 9
 const arr = [1, 3, 4, 4, 6, 8]
 console.log("m:", m)
 console.log("arr:", arr)
