@@ -62,9 +62,11 @@ class LL {
 }
 
 class LLNode {
-    this.data = whatever;
-    this.next;
-    this.prev;
+    constructor() {
+        this.data;
+        this.next;
+        this.prev;
+    }
 }
 
 class LRUCache {
