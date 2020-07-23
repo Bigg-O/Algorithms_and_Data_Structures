@@ -1,6 +1,10 @@
 // 701. Insert into a Binary Search Tree
 // https://leetcode.com/problems/insert-into-a-binary-search-tree/
 
+// Runtime Complexity:
+//    O(n) n = depths of BST
+// Space Complexity:
+//    O(1)
 const insertIntoBST = function(root, val, node = root) {
     if (!root) {
       root = new TreeNode(val)
@@ -22,4 +26,4 @@ const insertIntoBST = function(root, val, node = root) {
     }
     
     return insertIntoBST(root, val, node)
-};
+}
