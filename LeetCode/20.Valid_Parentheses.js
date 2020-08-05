@@ -65,28 +65,29 @@
 // }
 
 // Third Solution
+const opens = {
+    '(': 1,
+    '{': 2,
+    '[': 3
+}
+const closes = {
+    ')': 1,
+    '}': 2,
+    ']': 3
+}
 var isValid = function (str) {
     if (str.length % 2 === 1) {
         return false
     }
 
     const stack = []
-    const opens = {
-        '(': 1,
-        '{': 2,
-        '[': 3
-    }
-    const closes = {
-        ')': 1,
-        '}': 2,
-        ']': 3
-    }
 
     for (const char of str) {
         if (opens[char]) {
             stack.push(char)
         } else if (stack.length && closes[char]) {
-            if (opens[stack[stack.length - 1]] === closes[char]) {
+            const stackPeak = stack[stack.length - 1]
+            if (opens[stackPeak] === closes[char]) {
                 stack.pop()
             } else {
                 return false
