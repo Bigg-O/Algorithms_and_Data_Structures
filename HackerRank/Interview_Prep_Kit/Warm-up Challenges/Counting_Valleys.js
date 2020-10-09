@@ -1,7 +1,7 @@
 // https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=warmup&isFullScreen=true
 
 // 10/07/2020
-// redo
+// Redo
 // Runtime : 
 // Space : 
 function countingValleys(num, str) {
