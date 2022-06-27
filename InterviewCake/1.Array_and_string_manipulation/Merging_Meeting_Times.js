@@ -1,3 +1,19 @@
+// attempt 6/27/2022
+function mergeRanges(scheduleArr){
+  scheduleArr = scheduleArr.sort((a,b) => a.startTime - b.startTime)
+
+  for (let i = 0; i < scheduleArr.length - 1; i++){
+    if (scheduleArr[i].endTime >= scheduleArr[i+1].startTime) {
+      if (scheduleArr[i].endTime <= scheduleArr[i+1].endTime) {
+        scheduleArr[i].endTime = scheduleArr[i+1].endTime
+        }
+      scheduleArr.splice(i+1, 1)
+    }
+  }
+  
+  return scheduleArr
+}
+
 // Attempt 2/15/2021
 function mergeRanges(scheduleArr) {
   const sortedSchedules = scheduleArr.sort(a.startTime - b.startTime)
