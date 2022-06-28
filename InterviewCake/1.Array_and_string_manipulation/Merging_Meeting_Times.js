@@ -1,4 +1,5 @@
-// attempt 6/27/2022
+// Attempt 6/27/2022
+// Big O = O(n log(n))
 function mergeRanges(scheduleArr){
   scheduleArr = scheduleArr.sort((a,b) => a.startTime - b.startTime)
 
@@ -6,7 +7,7 @@ function mergeRanges(scheduleArr){
     if (scheduleArr[i].endTime >= scheduleArr[i+1].startTime) {
       if (scheduleArr[i].endTime <= scheduleArr[i+1].endTime) {
         scheduleArr[i].endTime = scheduleArr[i+1].endTime
-        }
+      }
       scheduleArr.splice(i+1, 1)
     }
   }
