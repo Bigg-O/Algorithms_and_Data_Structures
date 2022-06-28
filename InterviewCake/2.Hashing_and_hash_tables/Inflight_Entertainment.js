@@ -15,8 +15,6 @@ function canTwoMoviesFillFlight(movieLengths, flightLength) {
         if (flightLength - length === length) {
             if (movieLengthsMap[length] === 2) {
                 return true
-            } else {
-                continue
             }
         } else if (movieLengthsMap[flightLength - length]){
             return true
