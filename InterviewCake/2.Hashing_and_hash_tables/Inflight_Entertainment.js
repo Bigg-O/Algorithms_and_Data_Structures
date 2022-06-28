@@ -1,3 +1,31 @@
+// 6/28/2022 Attempt
+// Runtime: O(n), n = int of movieLengths
+// Space: O(n), n = int of movieLengths
+function canTwoMoviesFillFlight(movieLengths, flightLength) {
+    const movieLengthsMap = {}
+    for (const length of movieLengths) {
+        if (movieLengthsMap[length]) {
+            movieLengthsMap[length]++
+        } else {
+            movieLengthsMap[length] = 1
+        }
+    }
+
+    for (const length of movieLengths) {
+        if (flightLength - length === length) {
+            if (movieLengthsMap[length] === 2) {
+                return true
+            } else {
+                continue
+            }
+        } else if (movieLengthsMap[flightLength - length]){
+            return true
+        }
+    }
+
+    return false
+}
+
 // // Hash Map solution
 // function canTwoMoviesFillFlight(movieLengths, flightLength) {
 //     const lengthMap = {}
