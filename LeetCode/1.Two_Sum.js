@@ -9,9 +9,26 @@
 // Because nums[0] + nums[1] = 2 + 7 = 9,
 // return [0, 1].
 
-
-
-
+// Attempt 7/1/2022
+// Big O
+// Run Time:
+//  O(n), n = num of elements in nums
+// Space:
+//  O(n), n = num of elements in nums
+var twoSum = function(nums, target) {
+    const numTable = {}
+    
+    for (let i = 0; i < nums.length; i++) {
+        const current = nums[i]
+        const otherPair = target - current
+        
+        if (numTable[otherPair] !== undefined) {
+            return [i, numTable[otherPair]]
+        }
+        
+        numTable[current] = i
+    }
+};
 
 // Brute Force
 // function twoSum(nums, target) {
